@@ -33,7 +33,7 @@ When you log in via ```http://localhost:8080/auth/login``` you are given a token
 ## Postman Collection
 You can test the api thanks to Postman locally on your computer or by opening it using the link:<br>
 ```bash
-https://solar-trinity-124167.postman.co/workspace/3b8ccce8-e323-47dd-a41b-98d3d65f7c8b/collection/29171033-f2a03f26-03ee-4881-9758-d37fa832767b?action=share&source=collection_link&creator=29171033
+https://solar-trinity-124167.postman.co/workspace/first~3b8ccce8-e323-47dd-a41b-98d3d65f7c8b/collection/29171033-f2a03f26-03ee-4881-9758-d37fa832767b?action=share&source=collection_link&creator=29171033
 ```
 ## Swagger Documentation
 Documentation for microservice AuthService<br>
