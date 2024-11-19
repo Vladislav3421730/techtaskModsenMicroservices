@@ -1,0 +1,570 @@
+{
+	"info": {
+		"_postman_id": "f2a03f26-03ee-4881-9758-d37fa832767b",
+		"name": "LibraryApiCollection",
+		"description": "Postman Collection for working with LibraryAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29171033",
+		"_collection_link": "https://solar-trinity-124167.postman.co/workspace/first~3b8ccce8-e323-47dd-a41b-98d3d65f7c8b/collection/29171033-f2a03f26-03ee-4881-9758-d37fa832767b?action=share&source=collection_link&creator=29171033"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "LoginAsAdmin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMwOTAzNDQxLCJleHAiOjE3MzA5MDUyNDF9.DYWzgwZypBKnnRKAb1eVuvrUiJP6VMFkmupOtG_yoxU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"Admin\",\r\n    \"password\" : \"q1w2e3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Prompt to login with ADMIN"
+					},
+					"response": []
+				},
+				{
+					"name": "LoginAsUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVXNlciIsImlhdCI6MTczMDkwMzU2OSwiZXhwIjoxNzMwOTA1MzY5fQ.qF7HJCojeVHCTsxuuViJ96JTQBQuL67gvi-Ql3woEd0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"User\",\r\n    \"password\" : \"q1w2e3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Prompt to login with USER role"
+					},
+					"response": []
+				},
+				{
+					"name": "Registration",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\" : \"User\",\r\n    \"password\" : \"q1w2e3\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						},
+						"description": "Request for user registration. When registering, the USER role is assigned"
+					},
+					"response": []
+				}
+			],
+			"description": "This package contains HTTP requests for authorization and registration. The database already has users with the roles USER and ADMIN. And accordingly, you can get a token for users with different roles."
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "GetAllBooks",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVXNlciIsImlhdCI6MTczMTk5ODQ4MSwiZXhwIjoxNzMyMDAyMDgxfQ.FsiIlrue0FoFC0Zz591a-4LT2eqmYQsFXRU3b7ZjKg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/get",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"get"
+							]
+						},
+						"description": "Recieving all books"
+					},
+					"response": []
+				},
+				{
+					"name": "GetBookById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVXNlciIsImlhdCI6MTczMTk5ODQ4MSwiZXhwIjoxNzMyMDAyMDgxfQ.FsiIlrue0FoFC0Zz591a-4LT2eqmYQsFXRU3b7ZjKg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/book/get/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"get",
+								"1"
+							]
+						},
+						"description": "Receiving a book by id"
+					},
+					"response": []
+				},
+				{
+					"name": "GetBookByISBN",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MzgyLCJleHAiOjE3MzIwMDI5ODJ9.H3KbNfG8PUpVynf32EEWJGZzSh09hmozoYkiWvs9joM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/book/get/isbn/978-1-40-289462-6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"get",
+								"isbn",
+								"978-1-40-289462-6"
+							]
+						},
+						"description": "Receiving a book by ISBN"
+					},
+					"response": []
+				},
+				{
+					"name": "SaveBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MDExLCJleHAiOjE3MzIwMDI2MTF9.oasdJIDMFn258IvdWMC7A8ZVbkgBEpvkoH0CFNrTCDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 8,\r\n        \"isbn\": \"978-0-06-112008-4\",\r\n        \"name\": \"Brave New World\",\r\n        \"genre\": \"Dystopian\",\r\n        \"description\": \"A provocative depiction of a future society driven by technology, genetic engineering, and the pursuit of pleasure at the expense of individuality.\",\r\n        \"author\": \"Aldous Huxley\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"save"
+							]
+						},
+						"description": "Saving new book"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MzgyLCJleHAiOjE3MzIwMDI5ODJ9.H3KbNfG8PUpVynf32EEWJGZzSh09hmozoYkiWvs9joM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"id\": 1,\r\n        \"isbn\": \"978-3-16-148410-0\",\r\n        \"name\": \"The Great Gatsby\",\r\n        \"genre\": \"Classic\",\r\n        \"description\": \"A novel set in the Roaring Twenties, narrating the story of Jay Gatsby and his unrequited love for Daisy Buchanan. That all\",\r\n        \"author\": \"F. Scott Fitzgerald\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/book/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"update"
+							]
+						},
+						"description": "Updating existing book"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteBook",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MDExLCJleHAiOjE3MzIwMDI2MTF9.oasdJIDMFn258IvdWMC7A8ZVbkgBEpvkoH0CFNrTCDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/book/delete/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"delete",
+								"7"
+							]
+						},
+						"description": "Deleting book by id"
+					},
+					"response": []
+				},
+				{
+					"name": "GetFreeBooks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVXNlciIsImlhdCI6MTczMTk5ODQ4MSwiZXhwIjoxNzMyMDAyMDgxfQ.FsiIlrue0FoFC0Zz591a-4LT2eqmYQsFXRU3b7ZjKg4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/book/free",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"book",
+								"free"
+							]
+						},
+						"description": "Recieving all available books"
+					},
+					"response": []
+				}
+			],
+			"description": "The folder will be used to test HTTP requests related to books. Unauthorized users do not have access to these operations. Users with the USER role have access to all GET requests. A user with the ADMIN role has access to all requests. You just need to insert the token into the Authorization header in the Bearer token.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Library",
+			"item": [
+				{
+					"name": "GetBookStatuts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MzgyLCJleHAiOjE3MzIwMDI5ODJ9.H3KbNfG8PUpVynf32EEWJGZzSh09hmozoYkiWvs9joM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/library/getStatuses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"library",
+								"getStatuses"
+							]
+						},
+						"description": "Recieving all book statuses"
+					},
+					"response": []
+				},
+				{
+					"name": "GetBookStatusById",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MzgyLCJleHAiOjE3MzIwMDI5ODJ9.H3KbNfG8PUpVynf32EEWJGZzSh09hmozoYkiWvs9joM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/library/getStatus/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"library",
+								"getStatus",
+								"1"
+							]
+						},
+						"description": "Recieving book status by id"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateBookStatus",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIl0sInN1YiI6IkFkbWluIiwiaWF0IjoxNzMxOTk5MDExLCJleHAiOjE3MzIwMDI2MTF9.oasdJIDMFn258IvdWMC7A8ZVbkgBEpvkoH0CFNrTCDk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"id\": 2,\r\n        \"borrowedAt\": \"2023-11-17 21:20:06\",\r\n        \"dueDate\": \"2023-11-24 21:20:06\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/library/updateStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"library",
+								"updateStatus"
+							]
+						},
+						"description": "Update the status of an existing status book"
+					},
+					"response": []
+				}
+			],
+			"description": "Here are HTTP requests for working with statuses. The library-sevice microservice communicates with book-service using kafka and saves the statuses of saved books.  \nA user with the User role has access to only endpoints with the GET method, a user with the ADMIN role has access to all endpoints.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJyb2xlcyI6WyJST0xFX1VTRVIiXSwic3ViIjoiVXNlciIsImlhdCI6MTczMDk2OTI3NCwiZXhwIjoxNzMwOTcxMDc0fQ.DxpKTLcLxz-W26lGHyYij5DKRhcTYNuJvygBTw5GLWI",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}

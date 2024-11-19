@@ -1,0 +1,39 @@
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: authorization
+          uri: lb://authorization-service
+          predicates:
+            - Path=/auth/**
+        - id: books
+          uri: lb://book-service
+          predicates:
+            - Path=/book/**
+          filters:
+            - AuthenticationFilter
+        - id: library
+          uri: lb://library-service
+          predicates:
+            - Path=/library/**
+          filters:
+            - AuthenticationFilter
+        - id: authorization-service-swagger
+          uri: lb://authorization-service
+          predicates:
+            - Path=/swagger/authorization/**
+          filters:
+            - StripPrefix=2
+        - id: book-service-swagger
+          uri: lb://book-service
+          predicates:
+             - Path=/swagger/book/**
+          filters:
+              - StripPrefix=2
+        - id: library-service-swagger
+          uri: lb://library-service
+          predicates:
+            - Path=/swagger/library/**
+          filters:
+            - StripPrefix=2
